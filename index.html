@@ -33,9 +33,30 @@
     <!-- Game Screen -->
     <section>
         <div class="game">
+            <!-- header -->
             <h1 class="display-4"><strong>Hangman</strong></h1>
+            <!-- hangman pic section -->
+            <div class="side left-side">
+                <h3 class="results">You win! / You lose :(</h3>
+                <br>
+                <div class="hangman-pic">
+                    <canvas id="myCanvas" width="400px" height="500px" style="border:1px solid #c3c3c3;">
+                        Your browser does not support the canvas element.
+                    </canvas>
+                </div>
+            </div>
+            <!-- score section and guesses -->
+            <div class="side right-side">
+                <h3 id="instructions">Click on the alphabet buttons below to guess a letter</h3>
+                <h4 id="alphabet"></h4>
+                <button type="button" class="btn btn-light">Light</button>
+                <h4 id="blanks">Blanks for word you have to guess</h4>
+                <h4 id="guesses-left">Guesses left: </h4>
+            </div>
+
+            <div class="clearfix"></div>
         </div>
-        
+
     </section>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"

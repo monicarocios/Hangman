@@ -1,0 +1,12 @@
+word guess game:
+
+javascript doesn't want to work for both the intro and game pages when their html overlaps 
+so once comment out margin-top of the intro section, and the game section if below intro- it works and it fades in as needed
+also can't even click on the button when they overlap 
+
+need to find another way to make the fade in work or make the first page hide behind the second without screwing up javascript
+maybe not opacity...maybe z-index would help 
+
+or some other css thing
+
+also in rock, paper, scissors- could experiment with this and see why it's not working
