@@ -50,12 +50,27 @@ const game = () => {
 			btn.className = 'btn btn-light';
 			let name = document.createTextNode(alphabet[i]);
 			btn.appendChild(name);
+			btn.id = btn.innerHTML;
 			document.getElementById('alphabet').appendChild(btn);
 		}
+
+		const letterBtn = document.getElementsByClassName('btn btn-light');
+		console.log(letterBtn);
+		// letterBtn.addEventListener('click', () => {
+		// 	console.log(letterBtn.name);
+		// });
+	};
+
+	const chooseLetter = () => {
+		// const letterBtn = document.getElementsByClassName('.btn');
+		// letterBtn.addEventListener('click', () => {
+		// 	console.log(letterBtn.name);
+		// });
 	};
 
 	startGame();
 	printButtons();
+	chooseLetter();
 
 	// draw different parts of hangman when guess incorrectly
 	// functions divided by parts
