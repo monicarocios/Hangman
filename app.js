@@ -4,7 +4,7 @@ const game = () => {
 	// Start the Game
 	const startGame = () => {
 		const playbtn = document.getElementById('intro-btn');
-		const introScreen = document.querySelector('.intro');
+		const introScreen = document.querySelector('.jumbotron');
 		const gameScreen = document.querySelector('.game');
 
 		playbtn.addEventListener('click', () => {
