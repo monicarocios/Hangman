@@ -10,3 +10,17 @@ maybe not opacity...maybe z-index would help
 or some other css thing
 
 also in rock, paper, scissors- could experiment with this and see why it's not working
+
+4/20/20: need to grab the right button id so that i can register which letter was guessed
+I added an id to the button that reflects the letter of the alphabet that it is
+maybe could watch a tutorial for this one part im stuck on cause im not sure how to grab the id- after creating the button element in javascript
+or look at the example i already made on github for the word guess game
+
+answer: because i made the buttons in the for loop, i guess the function that needs to use the buttons needs to be called inside of that for loop...
+
+***todo: 
+1) need to randomly generate words out of an array? 
+2) need to check letter guessed with word and see if any of them matches
+3) if it doesn't match, draw part of hangman stick figure
+4) if it does match, add letter in the appropriate blank
+5) if guess the word, then player score goes up
