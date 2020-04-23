@@ -59,11 +59,36 @@ const game = () => {
 	const checkGuess = (btn) => {
 		btn.addEventListener('click', () => {
 			console.log(btn.id);
+			if (btn.id === word) {
+				console.log('you guessed correctly');
+			}
 		});
+	};
+
+	const selectWord = () => {
+		let spaceWords = [
+			'antimatter',
+			'black hole',
+			'asteroid',
+			'dark nebulae',
+			'earth',
+			'gamma ray',
+			'gravity',
+			'meteorite',
+			'neptune',
+			'pulsar',
+			'quasar',
+			'solar rain',
+			'supernova'
+		];
+
+		const randomWord = spaceWords[Math.floor(Math.random() * spaceWords.length + 1)];
+		console.log(randomWord);
 	};
 
 	startGame();
 	printButtons();
+	selectWord();
 
 	// draw different parts of hangman when guess incorrectly
 	// functions divided by parts
