@@ -14,64 +14,65 @@
 </head>
 
 <body>
-    <!-- Intro Screen -->
-    <section>
-        <div class="intro">
-            <div class="jumbotron">
-                <div class="jumbo-text">
-                    <h1 class="display-4"><strong>Hangman</strong></h1>
-                    <p class="lead"><i>space edition </i><i class="fas fa-headphones-alt"></i></p>
-                    <hr class="hr">
-                    <h5>Click Here To Get Started!</h5>
+    <div class="container-fluid">
+        <!-- Intro Screen -->
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6">
+                <div class="jumbotron">
+                    <div class="jumbo-text">
+                        <h1 class="display-4"><strong>Hangman</strong></h1>
+                        <p class="lead"><i>space edition </i><i class="fas fa-headphones-alt"></i></p>
+                        <hr class="hr">
+                        <h5>Click Here To Get Started!</h5>
+                        <br>
+                        <a class="btn btn-primary btn-lg" id="intro-btn" href="#" role="button">Start Game</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3"></div>
+
+            <!-- Game Screen -->
+
+            <div class="game">
+                <!-- header -->
+                <h1 class="display-4"><strong>Hangman</strong></h1>
+                <!-- hangman pic section -->
+                <div class="side left-side">
+                    <h3 class="results">You win! / You lose :(</h3>
                     <br>
-                    <a class="btn btn-primary btn-lg" id="intro-btn" href="#" role="button">Start Game</a>
+                    <div class="hangman-pic">
+                        <canvas id="myCanvas" width="400px" height="500px" style="border:1px solid #c3c3c3;">
+                            Your browser does not support the canvas element.
+                        </canvas>
+                    </div>
                 </div>
+                <!-- score section and guesses -->
+                <div class="side right-side">
+                    <h3 id="instructions">Click on the alphabet buttons below to guess a letter</h3>
+                    <h4 id="alphabet"></h4>
+                    <button type="button" class="btn btn-light">Light</button>
+                    <h4 id="blanks">Blanks for word you have to guess</h4>
+                    <h4 id="guesses-left">Guesses left: </h4>
+                </div>
+
+                <div class="clearfix"></div>
             </div>
         </div>
-    </section>
 
-    <!-- Game Screen -->
-    <section>
-        <div class="game">
-            <!-- header -->
-            <h1 class="display-4"><strong>Hangman</strong></h1>
-            <!-- hangman pic section -->
-            <div class="side left-side">
-                <h3 class="results">You win! / You lose :(</h3>
-                <br>
-                <div class="hangman-pic">
-                    <canvas id="myCanvas" width="400px" height="500px" style="border:1px solid #c3c3c3;">
-                        Your browser does not support the canvas element.
-                    </canvas>
-                </div>
-            </div>
-            <!-- score section and guesses -->
-            <div class="side right-side">
-                <h3 id="instructions">Click on the alphabet buttons below to guess a letter</h3>
-                <h4 id="alphabet"></h4>
-                <button type="button" class="btn btn-light">Light</button>
-                <h4 id="blanks">Blanks for word you have to guess</h4>
-                <h4 id="guesses-left">Guesses left: </h4>
-            </div>
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"></script>
 
-            <div class="clearfix"></div>
-        </div>
+        <script src="https://kit.fontawesome.com/2b22b9199d.js" crossorigin="anonymous"></script>
 
-    </section>
-
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
-
-    <script src="https://kit.fontawesome.com/2b22b9199d.js" crossorigin="anonymous"></script>
-
-    <script src="app.js"></script>
+        <script src="app.js"></script>
 
 </body>
 
