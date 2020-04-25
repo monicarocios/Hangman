@@ -1,5 +1,5 @@
 const game = () => {
-	let pScore = 0;
+	let pScore = 15;
 	let guessed = [];
 
 	let spaceWords = [
@@ -76,15 +76,20 @@ const game = () => {
 		}
 	};
 
-	const checkGuess = (letter, randomWord) => {
-		letter.addEventListener('click', () => {
-			console.log(letter.id);
-			guessed.indexOf(letter.id) === -1 ? guessed.push(letter.id) : null;
+	const checkGuess = (letterClicked, randomWord) => {
+		letterClicked.addEventListener('click', () => {
+			console.log(letterClicked.id);
+			guessed.indexOf(letterClicked.id) === -1 ? guessed.push(letterClicked.id) : null;
 			// Returns - 1 if the item is not found, so if letter clicked not found in guessed array already, push it to the array
-			document.getElementById(letter.id).setAttribute('disabled', true);
+			document.getElementById(letterClicked.id).setAttribute('disabled', true);
 			// console.log(guessed);
 
-			// if
+			if (randomWord.indexOf(letterClicked) >= 0) {
+				document.getElementById('blanks').innerHTML = letterClicked;
+			} else {
+				pScore--;
+				document.getElementById('guesses-left').innerHTML = 'Guesses left: ' + pScore;
+			}
 		});
 	};
 
