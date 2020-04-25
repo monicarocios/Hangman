@@ -4,17 +4,17 @@ const game = () => {
 
 	let spaceWords = [
 		'antimatter',
-		'black hole',
+		// 'black hole',
 		'asteroid',
-		'red giant',
+		// 'red giant',
 		'earth',
-		'gamma ray',
+		// 'gamma ray',
 		'gravity',
 		'meteorite',
 		'neptune',
 		'pulsar',
 		'quasar',
-		'solar rain',
+		// 'solar rain',
 		'supernova'
 	];
 
@@ -31,6 +31,8 @@ const game = () => {
 			introScreen.classList.add('fadeOut');
 			gameScreen.classList.add('fadeIn');
 		});
+
+		console.log(randomWord);
 	};
 
 	const printButtons = () => {
@@ -87,12 +89,26 @@ const game = () => {
 			if (randomWord.indexOf(letterClicked.id) >= 0) {
 				guessedCorrectly(randomWord);
 				document.getElementById('results').innerHTML = 'You Guessed Correctly!';
+				youWin(wordStatus, randomWord);
 			} else {
 				pScore--;
 				document.getElementById('guesses-left').innerHTML = 'Guesses left: ' + pScore;
 				document.getElementById('results').innerHTML = 'Nope :(';
 			}
 		});
+	};
+
+	const youWin = (wordStatus, randomWord) => {
+		if (wordStatus === randomWord) {
+			alert('YOU WON!!');
+			reset();
+		}
+	};
+
+	const reset = () => {
+		pScore = 15;
+		guessed = [];
+		document.getElementById('results').innerHTML = 'Guess a letter to start';
 	};
 
 	// Create blanks on the screen for word to be guessed
@@ -103,7 +119,6 @@ const game = () => {
 	// if not, then it leaves a blank
 
 	function guessedCorrectly(randomWord) {
-		console.log(randomWord);
 		wordStatus = randomWord.split('').map((letter) => (guessed.indexOf(letter) >= 0 ? letter : ' _ ')).join('');
 
 		document.getElementById('blanks').innerHTML = wordStatus;
