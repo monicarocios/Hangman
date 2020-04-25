@@ -1,5 +1,6 @@
 const game = () => {
 	let pScore = 0;
+	let guessed = [];
 
 	// Start the Game
 	const startGame = () => {
@@ -59,9 +60,12 @@ const game = () => {
 	const checkGuess = (btn) => {
 		btn.addEventListener('click', () => {
 			console.log(btn.id);
-			if (btn.id === word) {
-				console.log('you guessed correctly');
-			}
+
+			// for (i = 0; i < randomWord.length; i++) {
+			// 	if (btn.id === randomWord[i]) {
+			// 		console.log('you guessed correctly');
+			// 	}
+			// }
 		});
 	};
 
@@ -84,7 +88,16 @@ const game = () => {
 
 		const randomWord = spaceWords[Math.floor(Math.random() * spaceWords.length + 1)];
 		console.log(randomWord);
+
+		guessedWord(randomWord);
 	};
+
+	// Create blanks on the screen for word to be guessed
+	function guessedWord(randomWord) {
+		wordStatus = randomWord.split('').map((letter) => (guessed.indexOf(letter) >= 0 ? letter : ' _ ')).join('');
+
+		document.getElementById('blanks').innerHTML = wordStatus;
+	}
 
 	startGame();
 	printButtons();
