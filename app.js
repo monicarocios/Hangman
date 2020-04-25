@@ -60,6 +60,8 @@ const game = () => {
 	const checkGuess = (btn) => {
 		btn.addEventListener('click', () => {
 			console.log(btn.id);
+			guessed.indexOf(btn.id) === -1 ? guessed.push(btn.id) : null;
+			document.getElementById(btn.id).setAttribute('disabled', true);
 
 			// for (i = 0; i < randomWord.length; i++) {
 			// 	if (btn.id === randomWord[i]) {
@@ -93,6 +95,12 @@ const game = () => {
 	};
 
 	// Create blanks on the screen for word to be guessed
+	// how it works:
+	// using random word geneated by computer, function splits it by each letter and then runs through each of them
+	// it then goes to the (empty right now) guessed array
+	// if letter guessed has an index in the random word that is greater than or equal to 0, then it puts the letter in its corresponding place
+	// if not, then it leaves a blank
+
 	function guessedWord(randomWord) {
 		wordStatus = randomWord.split('').map((letter) => (guessed.indexOf(letter) >= 0 ? letter : ' _ ')).join('');
 
