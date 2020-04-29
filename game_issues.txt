@@ -27,4 +27,9 @@ answer: because i made the buttons in the for loop, i guess the function that ne
 
 4/29/20: need to add stick figure drawing when guess correctly
 need to figure out spacing in words (can look at hangman example with ones that have spaces, probably just about compressing it before comparing with array entries)
-make stick figure canvas lines z index greater than the background image so you can see it? or make sure the color is actually right
+need to figure out if splitting different parts of hangman
+		// body into functions works, or just using if else statements
+		// for pscore and hangman bosy works better
+
+        also need to fix canvas background changing to white after line added
+        also fix disappearing line?

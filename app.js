@@ -160,6 +160,10 @@ const game = () => {
 		if (pScore === 14) {
 			drawBase(ctx);
 		}
+
+		// need to figure out if splitting different parts of hangman
+		// body into functions works, or just using if else statements
+		// for pscore and hangman bosy works better
 	};
 
 	generateRandomWord();
