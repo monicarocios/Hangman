@@ -86,8 +86,7 @@ const game = () => {
 	const checkGuess = (letterClicked, randomWord) => {
 		letterClicked.addEventListener('click', () => {
 			console.log(letterClicked.id);
-			// guessed.indexOf(letterClicked.id) === -1 ? guessed.push(letterClicked.id) : null;
-			guessed.push(letterClicked.id);
+			guessed.indexOf(letterClicked.id) === -1 ? guessed.push(letterClicked.id) : null;
 			// Returns - 1 if the item is not found, so if letter clicked not found in guessed array already, push it to the array
 			document.getElementById(letterClicked.id).setAttribute('disabled', true);
 			// console.log(guessed);
@@ -100,6 +99,7 @@ const game = () => {
 				pScore--;
 				document.getElementById('guesses-left').innerHTML = 'Guesses left: ' + pScore;
 				document.getElementById('results').innerHTML = 'Nope :(';
+				youLose();
 			}
 		});
 	};
@@ -107,6 +107,13 @@ const game = () => {
 	const youWin = (wordStatus, randomWord) => {
 		if (wordStatus === randomWord) {
 			alert('YOU WON!! The word was: ' + randomWord);
+			reset();
+		}
+	};
+
+	const youLose = () => {
+		if (pScore === 0) {
+			alert('You Lost lil bit... The word was: ' + randomWord);
 			reset();
 		}
 	};
