@@ -98,8 +98,9 @@ const game = () => {
 			} else {
 				pScore--;
 				document.getElementById('guesses-left').innerHTML = 'Guesses left: ' + pScore;
-				document.getElementById('results').innerHTML = 'Nope :(';
+				document.getElementById('results').innerHTML = 'Wrong Letter :(';
 				youLose();
+				drawHangman();
 			}
 		});
 	};
@@ -146,18 +147,29 @@ const game = () => {
 		document.getElementById('blanks').innerHTML = wordStatus;
 	}
 
+	const drawHangman = () => {
+		var canvas = document.getElementById('myCanvas');
+		var ctx = canvas.getContext('2d');
+		ctx.fillStyle = 'rgba(255, 255, 255, 0.87)';
+		ctx.fillRect(0, 0, 400, 500);
+		const drawBase = (drawingObject) => {
+			drawingObject.moveTo(0, 0);
+			drawingObject.lineTo(400, 500);
+			drawingObject.stroke();
+		};
+		if (pScore === 14) {
+			drawBase(ctx);
+		}
+	};
+
 	generateRandomWord();
 	printButtons();
 	guessedCorrectly(randomWord);
 	startGame();
+	drawHangman();
 
 	// draw different parts of hangman when guess incorrectly
 	// functions divided by parts
-
-	const drawHangman = () => {
-		var canvas = document.getElementById('myCanvas');
-		var ctx = canvas.getContext('2d');
-	};
 };
 
 game();

@@ -94,3 +94,7 @@ body {
 	pointer-events: all;
 	z-index: 1;
 }
+
+/* #canvas {
+	z-index: 2;
+} */
