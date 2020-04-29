@@ -1,25 +1,28 @@
 const game = () => {
 	let pScore = 15;
 	let guessed = [];
+	let wordStatus = null;
+	let alphabet = [];
+	let randomWord = '';
 
 	let spaceWords = [
 		'antimatter',
-		// 'black hole',
+		'black hole',
 		'asteroid',
-		// 'red giant',
+		'red giant',
 		'earth',
-		// 'gamma ray',
+		'gamma ray',
 		'gravity',
 		'meteorite',
 		'neptune',
 		'pulsar',
 		'quasar',
-		// 'solar rain',
+		'solar rain',
 		'supernova'
 	];
 
 	// Computer randomely selects a word from the space words array
-	const randomWord = spaceWords[Math.floor(Math.random() * spaceWords.length + 1)];
+	let generateRandomWord = () => (randomWord = spaceWords[Math.floor(Math.random() * spaceWords.length + 1)]);
 
 	// Start the Game
 	const startGame = () => {
@@ -33,10 +36,12 @@ const game = () => {
 		});
 
 		console.log(randomWord);
+		document.getElementById('guesses-left').innerHTML = 'Guesses left: ' + pScore;
+		// console.log(Math.floor(Math.random() * spaceWords.length + 1));
 	};
 
 	const printButtons = () => {
-		let alphabet = [
+		alphabet = [
 			'a',
 			'b',
 			'c',
@@ -81,7 +86,8 @@ const game = () => {
 	const checkGuess = (letterClicked, randomWord) => {
 		letterClicked.addEventListener('click', () => {
 			console.log(letterClicked.id);
-			guessed.indexOf(letterClicked.id) === -1 ? guessed.push(letterClicked.id) : null;
+			// guessed.indexOf(letterClicked.id) === -1 ? guessed.push(letterClicked.id) : null;
+			guessed.push(letterClicked.id);
 			// Returns - 1 if the item is not found, so if letter clicked not found in guessed array already, push it to the array
 			document.getElementById(letterClicked.id).setAttribute('disabled', true);
 			// console.log(guessed);
@@ -100,7 +106,7 @@ const game = () => {
 
 	const youWin = (wordStatus, randomWord) => {
 		if (wordStatus === randomWord) {
-			alert('YOU WON!!');
+			alert('YOU WON!! The word was: ' + randomWord);
 			reset();
 		}
 	};
@@ -108,7 +114,16 @@ const game = () => {
 	const reset = () => {
 		pScore = 15;
 		guessed = [];
+		wordStatus = null;
+		document.getElementById('alphabet').innerHTML = '';
+		randomWord = '';
+
 		document.getElementById('results').innerHTML = 'Guess a letter to start';
+
+		generateRandomWord();
+		printButtons();
+		guessedCorrectly(randomWord);
+		startGame();
 	};
 
 	// Create blanks on the screen for word to be guessed
@@ -124,9 +139,10 @@ const game = () => {
 		document.getElementById('blanks').innerHTML = wordStatus;
 	}
 
-	startGame();
+	generateRandomWord();
 	printButtons();
 	guessedCorrectly(randomWord);
+	startGame();
 
 	// draw different parts of hangman when guess incorrectly
 	// functions divided by parts
