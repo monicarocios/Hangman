@@ -149,22 +149,11 @@ const game = () => {
 		ctx.linewidth = 2;
 	};
 
-	const base = () => {
-		var canvas = document.getElementById('myCanvas');
-		var ctx = canvas.getContext('2d');
-		// ctx.fillStyle = 'rgba(255, 255, 255, 0.87)';
-		// ctx.fillRect(0, 0, 400, 500);
-		ctx.beginPath();
-		ctx.moveTo(50, 50);
-		ctx.lineTo(50, 450);
-		ctx.stroke();
-	};
-
 	head = function() {
 		var canvas = document.getElementById('myCanvas');
 		var ctx = canvas.getContext('2d');
 		ctx.beginPath();
-		ctx.arc(60, 25, 10, 0, Math.PI * 2, true);
+		ctx.arc(125, 110, 20, 0, Math.PI * 2, true);
 		ctx.stroke();
 	};
 
@@ -177,39 +166,39 @@ const game = () => {
 	};
 
 	frame1 = function() {
-		draw(0, 150, 150, 150);
+		draw(50, 50, 50, 350);
 	};
 
 	frame2 = function() {
-		draw(10, 0, 10, 600);
+		draw(50, 350, 250, 350);
 	};
 
 	frame3 = function() {
-		draw(0, 5, 70, 5);
+		draw(50, 50, 125, 50);
 	};
 
 	frame4 = function() {
-		draw(60, 5, 60, 15);
+		draw(125, 50, 125, 90);
 	};
 
 	torso = function() {
-		draw(60, 36, 60, 70);
+		draw(125, 130, 125, 210);
 	};
 
 	rightArm = function() {
-		draw(60, 46, 100, 50);
+		draw(125, 140, 90, 200);
 	};
 
 	leftArm = function() {
-		draw(60, 46, 20, 50);
+		draw(125, 140, 160, 200);
 	};
 
 	rightLeg = function() {
-		draw(60, 70, 100, 100);
+		draw(125, 215, 90, 300);
 	};
 
 	leftLeg = function() {
-		draw(60, 70, 20, 100);
+		draw(125, 210, 160, 300);
 	};
 
 	drawArray = [ rightLeg, leftLeg, rightArm, leftArm, torso, head, frame4, frame3, frame2, frame1 ];
