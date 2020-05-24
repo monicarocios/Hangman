@@ -7,18 +7,16 @@ const game = () => {
 
 	let spaceWords = [
 		'antimatter',
-		'black hole',
 		'asteroid',
-		'red giant',
 		'earth',
-		'gamma ray',
 		'gravity',
 		'meteorite',
 		'neptune',
 		'pulsar',
 		'quasar',
-		'solar rain',
-		'supernova'
+		'supernova',
+		'universe',
+		'interstellar'
 	];
 
 	// Computer randomly selects a word from the space words array
