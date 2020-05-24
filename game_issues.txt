@@ -33,3 +33,6 @@ need to figure out if splitting different parts of hangman
 
         also need to fix canvas background changing to white after line added
         also fix disappearing line?
+
+5/14/20: add canvas clear line so that white transparent background doesnt become more opaque with each reset
+need to fix hangman caricature in drawing coordinates
